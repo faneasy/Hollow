@@ -1,9 +1,20 @@
 ###*
-# 
+# @module models
 # @date: 2014-02-22 11:31:01
 # @author: vfasky (vfasky@gmail.com)
 # @link: http://vfasky.com
 # @version: $Id$
+#
+# 存放所有 model 定义
+# @desc
+# ## demo:
+# 
+# ```coffeescript
+# database = require './models'
+#
+# database.User.findAll().success (users) ->
+#     console.log users
+# ```
 ###
 
 fs = require 'fs'
@@ -13,7 +24,12 @@ Sequelize = require 'sequelize'
 lodash = require 'lodash'
 database = {}
 
-# 加载配置
+
+
+###*
+# 实例化的 Sequelize
+# @module models/sequelize
+###
 sequelize = new Sequelize(
     config.equelize_database,
     config.equelize_username,
