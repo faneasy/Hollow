@@ -9,7 +9,7 @@
 # @desc
 # ## demo:
 # 
-# ```coffeescript
+# ```coffee
 # database = require './models'
 #
 # database.User.findAll().success (users) ->

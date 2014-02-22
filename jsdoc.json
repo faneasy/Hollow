@@ -22,6 +22,7 @@
     },
     "opts": {
         "recurse": true,
+        "template": "./doc_templates/hollow",
         "destination": "./docs"   
     }
 }
