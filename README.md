@@ -9,5 +9,6 @@ Hollow
 sudo npm install -g cnpm
 sudo cnpm install -g node-dev
 sudo cnpm install
+mv config.default.js config.js
 sudo node-dev app.js
 ```
