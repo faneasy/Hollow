@@ -1,0 +1,8 @@
+{toc:maxLevel=4}
+
+h1. models
+
+h2. Constructor
+<h2 id="demo-">demo:</h2> <pre><code class="lang-coffee">database = require './models'  database.User.findAll().success (users) -&gt;     console.log users</code></pre>
+
+h2. Details

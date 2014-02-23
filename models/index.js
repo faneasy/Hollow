@@ -9,14 +9,16 @@
  *
  * 存放所有 model 定义
  * @desc
- * ## demo:
+ * ## demo: 
  * 
  * ```coffee
  * database = require './models'
  *
  * database.User.findAll().success (users) ->
  *     console.log users
+ *
  * ```
+ *
  */
 
 (function() {
@@ -37,7 +39,7 @@
 
 
   /**
-   * 实例化的 Sequelize
+   * 返回实例化的 Sequelize
    * @module models/sequelize
    */
 

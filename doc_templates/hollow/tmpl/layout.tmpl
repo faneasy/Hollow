@@ -14,9 +14,12 @@
 
 <body>
 
-<div id="main">
+<div id="main" class="container">
     
-    <h1 class="page-title"><?js= title ?></h1>
+	  <div class="page-header" >
+	  	<h1><?js= title ?></h1>
+      </div>
+
     
     <?js= content ?>
 </div>
@@ -32,6 +35,5 @@
 </footer>
 
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="scripts/linenumber.js"> </script>-->
 </body>
 </html>
