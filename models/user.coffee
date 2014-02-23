@@ -26,11 +26,11 @@ module.exports = (sequelize, DataTypes) ->
                 notEmpty: true
                 unique: true
 
-        reg_date:
+        regDate:
             type: Sequelize.DATE
             defaultValue: Sequelize.NOW
 
-        last_login_date: DataTypes.DATE
+        lastLoginDate: DataTypes.DATE
 
     )
     

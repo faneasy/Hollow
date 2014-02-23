@@ -32,14 +32,14 @@ database = {}
 # @module models/sequelize
 ###
 sequelize = new Sequelize(
-    config.equelize_database,
-    config.equelize_username,
-    config.equelize_password,
-        dialect: config.equelize_dialect
-        host: config.equelize_host
-        port: config.equelize_port
-        maxConcurrentQueries: config.equelize_max_con
-        pool: config.equelize_pool
+    config.equelizeDatabase,
+    config.equelizeUsername,
+    config.equelizePassword,
+        dialect: config.equelizeDialect
+        host: config.equelizeHost
+        port: config.equelizePort
+        maxConcurrentQueries: config.equelizeMaxCon
+        pool: config.equelizePool
         #sync: force: true
 )
 

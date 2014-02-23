@@ -10,33 +10,29 @@
  */
 
 (function() {
-  var pkg;
-
-  pkg = require('./package.json');
-
-  exports.static_host = '';
+  exports.staticHost = '';
 
   exports.host = '127.0.0.1';
 
-  exports.session_secret = 'hollow_catke';
+  exports.sessionSecret = 'hollow_catke';
 
-  exports.auth_cookie_name = 'hollow_catke';
+  exports.authCookieName = 'hollow_catke';
 
-  exports.equelize_host = 'localhost';
+  exports.equelizeHost = 'localhost';
 
-  exports.equelize_port = 5432;
+  exports.equelizePort = 5432;
 
-  exports.equelize_max_con = 100;
+  exports.equelizeMaxCon = 100;
 
-  exports.equelize_dialect = 'postgres';
+  exports.equelizeDialect = 'postgres';
 
-  exports.equelize_database = 'hollow';
+  exports.equelizeDatabase = 'hollow';
 
-  exports.equelize_username = 'hollow';
+  exports.equelizeUsername = 'hollow';
 
-  exports.equelize_password = '';
+  exports.equelizePassword = '';
 
-  exports.equelize_pool = {
+  exports.equelizePool = {
     maxConnections: 5,
     maxIdleTime: 30
   };

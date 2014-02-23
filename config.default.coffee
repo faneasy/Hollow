@@ -7,32 +7,29 @@
 # @version: $Id$
 ###
 
-pkg = require('./package.json')
-
-
 # 静态文件cdn域名，如: cdn.dev.com，推荐 七牛， 每月免费10G流量
-exports.static_host = ''
+exports.staticHost = ''
 
 # 站点域名 如: hollow.catke.com
 exports.host = '127.0.0.1'
 
-exports.session_secret = 'hollow_catke'
+exports.sessionSecret = 'hollow_catke'
 
-exports.auth_cookie_name = 'hollow_catke'
+exports.authCookieName = 'hollow_catke'
 
 # 数据库配置
-exports.equelize_host = 'localhost'
-exports.equelize_port = 5432
+exports.equelizeHost = 'localhost'
+exports.equelizePort = 5432
 # 数据库最大连接数
-exports.equelize_max_con = 100
+exports.equelizeMaxCon = 100
 # supported: 'mysql', 'sqlite', 'postgres', 'mariadb'
-exports.equelize_dialect = 'postgres'
+exports.equelizeDialect = 'postgres'
 
-exports.equelize_database = 'hollow'
-exports.equelize_username = 'hollow'
-exports.equelize_password = ''
+exports.equelizeDatabase = 'hollow'
+exports.equelizeUsername = 'hollow'
+exports.equelizePassword = ''
 
-exports.equelize_pool =
+exports.equelizePool =
     maxConnections: 5
     maxIdleTime: 30
 
