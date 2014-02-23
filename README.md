@@ -22,7 +22,7 @@ sudo node-dev app.js
 
 ```base
 sudo cnpm install -g gulp
-sudo cnpm install gulp-util
+sudo cnpm install --save-dev gulp gulp-util
 sudo cnpm install gulp-watch
 sudo cnpm install less
 ```
