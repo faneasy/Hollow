@@ -33,6 +33,24 @@ sudo cnpm install less
 gulp
 ```
 
+## 单元测试
+
+### 安装包
+
+```base
+sudo cnpm install -g mocha
+sudo cnpm install sinon
+```
+
+### 执行测试
+
+```bash
+mocha
+```
+
+
+
+
 ## coffee script 编码约定
 
 - 变量命名：骆驼法则

@@ -6,6 +6,7 @@
         "include": [
             "./README.md",
             "./models/",
+            "./hollow/",
             "./routes/"
         ],
         "exclude": [

@@ -5,8 +5,8 @@
 express = require 'express'
 http = require 'http'
 path = require 'path'
-swig = require 'swig'
 
+swig = require './hollow/swigext'
 routes = require './routes'
 config = require './config'
 database = require './models'

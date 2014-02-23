@@ -13,7 +13,7 @@
 
   path = require('path');
 
-  swig = require('swig');
+  swig = require('./hollow/swigext');
 
   routes = require('./routes');
 

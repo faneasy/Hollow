@@ -10,7 +10,7 @@
  */
 
 (function() {
-  exports.staticHost = '';
+  exports.staticHost = '127.0.0.1';
 
   exports.host = '127.0.0.1';
 

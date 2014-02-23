@@ -60,7 +60,7 @@ buildLess = ->
     , 1000
 
 
-gulp.watch ['README.md', 'models/**', 'routes/**'], (event) ->
+gulp.watch ['README.md', 'models/**', 'routes/**' , 'hollow/**'], (event) ->
     #console.log('File '+event.path+' was '+event.type+', running tasks...');
     buildNodeDoc()
 

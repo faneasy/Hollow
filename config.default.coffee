@@ -8,7 +8,7 @@
 ###
 
 # 静态文件cdn域名，如: cdn.dev.com，推荐 七牛， 每月免费10G流量
-exports.staticHost = ''
+exports.staticHost = '127.0.0.1'
 
 # 站点域名 如: hollow.catke.com
 exports.host = '127.0.0.1'

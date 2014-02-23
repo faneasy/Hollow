@@ -73,7 +73,7 @@
     }, 1000);
   };
 
-  gulp.watch(['README.md', 'models/**', 'routes/**'], function(event) {
+  gulp.watch(['README.md', 'models/**', 'routes/**', 'hollow/**'], function(event) {
     return buildNodeDoc();
   });
 
