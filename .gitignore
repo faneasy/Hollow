@@ -15,8 +15,5 @@ npm-debug.log
 node_modules
 
 *.swp
-<<<<<<< HEAD
 
 config.js
-=======
->>>>>>> 04ffff3f57b4d8e991b922a0af1f3a4f24bee755
