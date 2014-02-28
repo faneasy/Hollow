@@ -30,9 +30,9 @@ sudo node-dev app.js
 sudo cnpm install -g gulp
 sudo cnpm install --save-dev gulp gulp-util
 sudo cnpm install gulp-watch
+sudo cnpm install gulp-docco
 sudo cnpm install less
-sudo apt-get install python-pygments
-sudo cnpm install docco-husky
+
 ```
 
 
