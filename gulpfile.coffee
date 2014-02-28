@@ -11,7 +11,8 @@ process = require 'child_process'
 path = require 'path'
 fs = require 'fs'
 less = require 'less'
-
+docco = require 'gulp-docco'
+watch = require 'gulp-watch'
 # 生成文档
 _buildNodeDocTime = null
 buildNodeDoc = ->
@@ -19,11 +20,11 @@ buildNodeDoc = ->
         clearTimeout _buildNodeDocTime
     
     _buildNodeDocTime = setTimeout ->
-        process.exec 'sudo jsdoc -c ./jsdoc.json', (err, stdout, stderr) ->
+        process.exec 'docco -l README.md app/hollow/*.coffee app/models/*.coffee app/routes/*.coffee', (err, stdout, stderr) ->
             if err
                 console.log 'error: ' + err
             else if stdout
-                console.log 'jsdoc error: ' + stdout
+                console.log stdout
         
         return
     , 1000
@@ -60,11 +61,17 @@ buildLess = ->
     , 1000
 
 
-gulp.watch ['README.md', 'models/**', 'routes/**' , 'hollow/**'], (event) ->
-    #console.log('File '+event.path+' was '+event.type+', running tasks...');
-    buildNodeDoc()
+#gulp.watch ['README.md', 'app/**'], (event) ->
+    ##console.log('File '+event.path+' was '+event.type+', running tasks...');
+    #buildNodeDoc()
 
-gulp.watch ['public/style/*.less'], (event) ->
-    buildLess()
+#gulp.src ['README.md', 'app/*.coffee']
+    #.pipe(docco())
+    #.pipe(gulp.dest('./docs'))
 
 gulp.task 'default', ->
+    gulp.src ['app/**/*.coffee', 'README.md']
+        .pipe watch (files)->
+            files.pipe docco layout: 'linear'
+                 .pipe gulp.dest('./docs/')
+        

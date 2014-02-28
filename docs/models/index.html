@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>index.coffee</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../public/stylesheets/normalize.css" />
+  <link rel="stylesheet" media="all" href="../docco.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="page">
+
+      <div class="header">
+        
+          <h1>index.coffee</h1>
+        
+
+        
+      </div>
+
+      
+        
+        <h2 id="-">*</h2>
+<p>@module models
+@date: 2014-02-22 11:31:01
+@author: vfasky (vfasky@gmail.com)
+@link: <a href="http://vfasky.com">http://vfasky.com</a>
+@version: $Id$</p>
+<p>Models </p>
+<p>Examples </p>
+<pre><code class="lang-coffee">database = require &#39;./models&#39;
+
+database.User.findAll().success (users) -&gt;
+    console.log users
+</code></pre>
+<h1 id="-">#</h1>
+
+        
+          <div class='highlight'><pre>
+fs = <span class="hljs-built_in">require</span> <span class="hljs-string">'fs'</span>
+path = <span class="hljs-built_in">require</span> <span class="hljs-string">'path'</span>
+config = <span class="hljs-built_in">require</span> <span class="hljs-string">'../../config'</span>
+Sequelize = <span class="hljs-built_in">require</span> <span class="hljs-string">'sequelize'</span>
+lodash = <span class="hljs-built_in">require</span> <span class="hljs-string">'lodash'</span>
+database = {}</pre></div>
+        
+      
+        
+        <h2 id="-">*</h2>
+<p>返回实例化的 Sequelize
+@module models/sequelize</p>
+<h1 id="-">#</h1>
+
+        
+          <div class='highlight'><pre>sequelize = <span class="hljs-keyword">new</span> Sequelize(
+    config.equelizeDatabase,
+    config.equelizeUsername,
+    config.equelizePassword,
+        <span class="hljs-attribute">dialect</span>: config.equelizeDialect
+        <span class="hljs-attribute">host</span>: config.equelizeHost
+        <span class="hljs-attribute">port</span>: config.equelizePort
+        <span class="hljs-attribute">maxConcurrentQueries</span>: config.equelizeMaxCon
+        <span class="hljs-attribute">pool</span>: config.equelizePool</pre></div>
+        
+      
+        
+        <p>sync: force: true</p>
+
+        
+          <div class='highlight'><pre>)</pre></div>
+        
+      
+        
+        <p>动态import model</p>
+
+        
+          <div class='highlight'><pre>fs.readdirSync(__dirname)
+  .filter <span class="hljs-function"><span class="hljs-params">(file)</span>-&gt;</span>
+      file.indexOf(<span class="hljs-string">'.coffee'</span>) == -<span class="hljs-number">1</span> <span class="hljs-keyword">and</span>
+      file.indexOf(<span class="hljs-string">'.'</span>) != <span class="hljs-number">0</span> <span class="hljs-keyword">and</span>
+      file != <span class="hljs-string">'index.js'</span>
+  .forEach <span class="hljs-function"><span class="hljs-params">(file)</span>-&gt;</span>
+      model = sequelize.<span class="hljs-reserved">import</span> path.join(__dirname, file)
+      database[model.name] = model
+
+Object.keys<span class="hljs-function"><span class="hljs-params">(database)</span>.<span class="hljs-title">forEach</span> <span class="hljs-params">(modelName)</span>-&gt;</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-string">'associate'</span> <span class="hljs-keyword">in</span> database[modelName]
+        database[modelName].associate database
+
+
+<span class="hljs-built_in">module</span>.<span class="hljs-built_in">exports</span> = lodash.extend(
+  <span class="hljs-attribute">sequelize</span>: sequelize,
+  <span class="hljs-attribute">Sequelize</span>: Sequelize
+, database)</pre></div>
+        
+      
+      <div class="fleur">h</div>
+    </div>
+  </div>
+</body>
+</html>

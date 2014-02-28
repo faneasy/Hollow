@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>swigext.coffee</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../public/stylesheets/normalize.css" />
+  <link rel="stylesheet" media="all" href="../docco.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="page">
+
+      <div class="header">
+        
+          <h1>swigext.coffee</h1>
+        
+
+        
+      </div>
+
+      
+        
+        <h2 id="-">*</h2>
+<p>@module hollow/swigext
+@date: 2014-02-23 10:38:44
+@author: vfasky (vfasky@gmail.com)
+@link: <a href="http://vfasky.com">http://vfasky.com</a>
+@version: $Id$
+@desc</p>
+<h2 id="swig-">swig 模板扩展 </h2>
+
+        
+      
+        
+        <h2 id="staticurl">staticUrl</h2>
+<p>生成静态url</p>
+<pre><code class="lang-html">{{ &#39;style/hollow.css&#39; | staticUrl }}
+</code></pre>
+<h1 id="-">#</h1>
+
+        
+          <div class='highlight'><pre>
+swig = <span class="hljs-built_in">require</span> <span class="hljs-string">'swig'</span>
+config = <span class="hljs-built_in">require</span> <span class="hljs-string">'../../config'</span>
+
+swig.setFilter <span class="hljs-string">'staticUrl'</span>, <span class="hljs-function"><span class="hljs-params">(input)</span> -&gt;</span>
+    url = input.toString()
+    <span class="hljs-keyword">if</span> <span class="hljs-string">''</span> != config.staticHost
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"//<span class="hljs-subst">#{config.staticHost}</span>/<span class="hljs-subst">#{url}</span>"</span>
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> url
+
+<span class="hljs-built_in">module</span>.<span class="hljs-built_in">exports</span> = swig</pre></div>
+        
+      
+      <div class="fleur">h</div>
+    </div>
+  </div>
+</body>
+</html>

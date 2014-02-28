@@ -9,7 +9,7 @@
  */
 
 (function() {
-  var buildLess, buildNodeDoc, fs, gulp, less, path, process, _buildLessTime, _buildNodeDocTime;
+  var buildLess, buildNodeDoc, docco, fs, gulp, less, path, process, watch, _buildLessTime, _buildNodeDocTime;
 
   gulp = require('gulp');
 
@@ -21,6 +21,10 @@
 
   less = require('less');
 
+  docco = require('gulp-docco');
+
+  watch = require('gulp-watch');
+
   _buildNodeDocTime = null;
 
   buildNodeDoc = function() {
@@ -28,11 +32,11 @@
       clearTimeout(_buildNodeDocTime);
     }
     _buildNodeDocTime = setTimeout(function() {
-      process.exec('sudo jsdoc -c ./jsdoc.json', function(err, stdout, stderr) {
+      process.exec('docco -l README.md app/hollow/*.coffee app/models/*.coffee app/routes/*.coffee', function(err, stdout, stderr) {
         if (err) {
           return console.log('error: ' + err);
         } else if (stdout) {
-          return console.log('jsdoc error: ' + stdout);
+          return console.log(stdout);
         }
       });
     }, 1000);
@@ -73,14 +77,12 @@
     }, 1000);
   };
 
-  gulp.watch(['README.md', 'models/**', 'routes/**', 'hollow/**'], function(event) {
-    return buildNodeDoc();
+  gulp.task('default', function() {
+    return gulp.src(['app/**/*.coffee', 'README.md']).pipe(watch(function(files) {
+      return files.pipe(docco({
+        layout: 'linear'
+      })).pipe(gulp.dest('./docs/'));
+    }));
   });
-
-  gulp.watch(['public/style/*.less'], function(event) {
-    return buildLess();
-  });
-
-  gulp.task('default', function() {});
 
 }).call(this);

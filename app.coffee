@@ -6,10 +6,10 @@ express = require 'express'
 http = require 'http'
 path = require 'path'
 
-swig = require './hollow/swigext'
-routes = require './routes'
+swig = require './app/hollow/swigext'
+routes = require './app/routes'
 config = require './config'
-database = require './models'
+database = require './app/models'
 
 app = express()
 
@@ -17,7 +17,7 @@ app.engine('html', swig.renderFile)
 
 app.set('port', process.env.PORT or 80)
 app.set('view engine', 'html')
-app.set('views', path.join(__dirname, 'views'))
+app.set('views', path.join(__dirname, 'app', 'views'))
 
 app.use express.favicon()
 app.use express.logger('dev')

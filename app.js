@@ -13,13 +13,13 @@
 
   path = require('path');
 
-  swig = require('./hollow/swigext');
+  swig = require('./app/hollow/swigext');
 
-  routes = require('./routes');
+  routes = require('./app/routes');
 
   config = require('./config');
 
-  database = require('./models');
+  database = require('./app/models');
 
   app = express();
 
@@ -29,7 +29,7 @@
 
   app.set('view engine', 'html');
 
-  app.set('views', path.join(__dirname, 'views'));
+  app.set('views', path.join(__dirname, 'app', 'views'));
 
   app.use(express.favicon());
 
