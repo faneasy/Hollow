@@ -5,7 +5,7 @@
  */
 
 (function() {
-  var app, config, database, express, http, path, routes, swig;
+  var SessionStor, app, config, database, express, http, path, routes, swig;
 
   express = require('express');
 
@@ -21,6 +21,8 @@
 
   database = require('./app/models');
 
+  SessionStor = require('./app/middleware/sessionstor')(express);
+
   app = express();
 
   app.engine('html', swig.renderFile);
@@ -33,6 +35,8 @@
 
   app.use(express.favicon());
 
+  app.use(express["static"](path.join(__dirname, 'public')));
+
   app.use(express.logger('dev'));
 
   app.use(express.json());
@@ -41,9 +45,7 @@
 
   app.use(express.methodOverride());
 
-  app.use(app.router);
-
-  app.use(express["static"](path.join(__dirname, 'public')));
+  app.use(express.cookieParser());
 
   if ('development' === app.get('env')) {
     app.set('view cache', false);
@@ -53,14 +55,18 @@
     app.use(express.errorHandler());
   }
 
-  app.get('/', routes.index);
-
   database.sequelize.sync({
     force: true
   }).complete(function(err) {
     if (err) {
       throw err;
     }
+    app.use(express.session({
+      secret: config.sessionSecret,
+      store: new SessionStor(database.Session)
+    }));
+    app.use(app.router);
+    app.get('/', routes.index);
     return http.createServer(app).listen(app.get('port'), function() {
       console.log('Express server listening on port ' + app.get('port'));
     });

@@ -10,7 +10,7 @@ Sequelize = require 'sequelize'
 
 
 module.exports = (sequelize, DataTypes) ->
-    sequelize.define('User',
+    sequelize.define 'User',
         name:
             type: Sequelize.STRING
             validate:
@@ -32,6 +32,6 @@ module.exports = (sequelize, DataTypes) ->
 
         lastLoginDate: DataTypes.DATE
 
-    )
+    
     
  
